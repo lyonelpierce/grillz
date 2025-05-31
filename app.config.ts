@@ -1,6 +1,7 @@
 // app.config.ts
-import { defineConfig } from "@tanstack/react-start/config";
+import tailwindcss from "@tailwindcss/vite";
 import tsConfigPaths from "vite-tsconfig-paths";
+import { defineConfig } from "@tanstack/react-start/config";
 
 export default defineConfig({
   vite: {
@@ -8,6 +9,7 @@ export default defineConfig({
       tsConfigPaths({
         projects: ["./tsconfig.json"],
       }),
+      tailwindcss(),
     ],
   },
 });

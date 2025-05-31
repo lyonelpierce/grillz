@@ -1,7 +1,7 @@
 // app/routes/index.tsx
 import * as fs from "node:fs";
-import { createFileRoute, useRouter } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
+import { createFileRoute, useRouter } from "@tanstack/react-router";
 
 const filePath = "count.txt";
 
@@ -36,6 +36,7 @@ function Home() {
   return (
     <button
       type="button"
+      className="bg-blue-500 text-white p-2 rounded-md text-5xl"
       onClick={() => {
         updateCount({ data: 1 }).then(() => {
           router.invalidate();
