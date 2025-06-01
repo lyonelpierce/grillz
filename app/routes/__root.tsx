@@ -1,13 +1,14 @@
 // app/routes/__root.tsx
-import type { ReactNode } from "react";
+import "../styles/app.css";
 import {
   Outlet,
-  createRootRoute,
-  HeadContent,
   Scripts,
+  HeadContent,
+  createRootRoute,
 } from "@tanstack/react-router";
+import type { ReactNode } from "react";
 import appCss from "@/styles/app.css?url";
-import "../styles/app.css";
+import { ClerkProvider } from "@clerk/tanstack-react-start";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -38,14 +39,16 @@ function RootComponent() {
 
 function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html>
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
+    <ClerkProvider>
+      <html>
+        <head>
+          <HeadContent />
+        </head>
+        <body>
+          {children}
+          <Scripts />
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
